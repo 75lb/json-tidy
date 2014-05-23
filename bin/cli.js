@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 "use strict";
 
-var Transform = require("stream").Transform;
-
-var transform = new Transform({ decodeStrings: false }),
-    inputBuffer = new Buffer("");
+var Transform = require("stream").Transform,
+    transform = new Transform(),
+    inputBuffer = new Buffer(0);
     
 transform._transform = function(chunk, enc, done){
     inputBuffer = Buffer.concat([ inputBuffer, chunk ]);
