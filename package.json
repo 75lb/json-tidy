@@ -1,5 +1,5 @@
 {
-  "name": "json-prettify",
+  "name": "json-tidy",
   "version": "0.0.0",
   "description": "Prettify JSON at the command line",
   "bin": "bin/cli.js",
