@@ -4,5 +4,10 @@
   "description": "Prettify JSON at the command line",
   "bin": "bin/cli.js",
   "author": "Lloyd Brookes",
-  "repository": "https://github.com/75lb/json-tidy"
+  "license": "MIT",
+  "repository": "https://github.com/75lb/json-tidy",
+  "dependencies": {
+    "ansi-escape-sequences": "^2.0.0",
+    "transform-tools": "~0.0.0"
+  }
 }

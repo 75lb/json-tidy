@@ -7,5 +7,9 @@ json-tidy
 Prettify JSON at the command line.
 
 ```sh
-$ cat some.json | json-tidy
+$ echo '{"name": "Floyd", "car": "Bugatti Veyron"}' | json-tidy
+{
+  "name": "Floyd",
+  "car": "Bugatti Veyron"
+}
 ```

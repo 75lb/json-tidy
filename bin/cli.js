@@ -1,17 +1,22 @@
 #!/usr/bin/env node
 "use strict";
+var tr = require("transform-tools");
+var domain = require("domain");
+var ansi = require("ansi-escape-sequences");
 
-var Transform = require("stream").Transform,
-    transform = new Transform(),
-    inputBuffer = new Buffer(0);
-    
-transform._transform = function(chunk, enc, done){
-    inputBuffer = Buffer.concat([ inputBuffer, chunk ]);
-    done();
-};
-transform._flush = function(done){
-    this.push(JSON.stringify(JSON.parse(inputBuffer.toString()), null, "  "));
-    done();
-};
+function tidy(json){
+    return JSON.stringify(json, null, "  ") + "\n";
+}
 
-process.stdin.pipe(transform).pipe(process.stdout);
+function halt(err){
+    console.error(ansi.format("Error parsing input JSON: " + err.message, "red"));
+    process.exit(1);
+}
+
+var d = domain.create();
+d.on("error", halt);
+d.run(function(){
+    process.stdin
+        .pipe(tr.collectJson({ transform: tidy }))
+        .pipe(process.stdout);
+});
