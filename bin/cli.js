@@ -9,7 +9,9 @@ function tidy(json){
 }
 
 function halt(err){
-    console.error(ansi.format("Error parsing input JSON: " + err.message, "red"));
+    console.error(ansi.format(err.message, "red"));
+    console.error(ansi.format("Input", [ "underline", "red" ]));
+    console.error(ansi.format(err.input, "red"));
     process.exit(1);
 }
 
@@ -17,6 +19,6 @@ var d = domain.create();
 d.on("error", halt);
 d.run(function(){
     process.stdin
-        .pipe(tr.collectJson({ transform: tidy }))
+        .pipe(tr.collectJson({ through: tidy }))
         .pipe(process.stdout);
 });
