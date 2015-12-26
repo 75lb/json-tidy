@@ -1,9 +1,11 @@
 {
   "name": "json-tidy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Prettify JSON at the command line",
   "keywords": [
-    "json", "stringify", "prettify"
+    "json",
+    "stringify",
+    "prettify"
   ],
   "bin": "bin/cli.js",
   "author": "Lloyd Brookes",
