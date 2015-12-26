@@ -2,12 +2,15 @@
   "name": "json-tidy",
   "version": "1.0.1",
   "description": "Prettify JSON at the command line",
+  "keywords": [
+    "json", "stringify", "prettify"
+  ],
   "bin": "bin/cli.js",
   "author": "Lloyd Brookes",
   "license": "MIT",
   "repository": "https://github.com/75lb/json-tidy",
   "dependencies": {
     "ansi-escape-sequences": "^2.0.0",
-    "transform-tools": "~0.1.0"
+    "collect-json": "^1.0.4"
   }
 }
